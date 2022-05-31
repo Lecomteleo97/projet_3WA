@@ -16,7 +16,7 @@ ob_start();
 <?php
     if(isset($list_produits)){
 while($listep = $list_produits->fetch(PDO::FETCH_ASSOC)){
-     echo '<a href="index.php?page=produit_view&id='.$listep['id'].'" class="card-produit produit'.$listep['id'].'">
+     echo '<a href="index.php?page=produit_view&id='.$listep['id'].'" class="card-produit '.$listep['type'].' produit'.$listep['id'].'">
         <div class="box-img-card-produit">
         <img src="./public/image/produits/'.$listep['photo'].'" alt="artichaud">-->
         </div>

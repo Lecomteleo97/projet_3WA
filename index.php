@@ -6,14 +6,11 @@ if(isset($_GET['page'])){
     $page = $_GET['page'];
 }
 
-if(isset($_GET['id'])){
-    $id = $_GET['id'];
-}
+$id = $_GET['id']?? 0;
 
 if(isset($_GET['action'])){
     $action = $_GET['action'];
 }
-
 
 
 switch($page){

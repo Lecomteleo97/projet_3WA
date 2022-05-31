@@ -1,12 +1,12 @@
 
-/*******************nav template*********************/
+/********************************nav template*************************************/
 body{
   font-family: 'Lato', sans-serif;
   background-color:#3BB77E;
   margin:0;
 }
 .hide{
-  display:none;
+  display:none !important;
 }
 .vert{
   color:#3BB77E;
@@ -120,14 +120,19 @@ main{
   width:100%;
   border-bottom:1px black solid;
 }
+.logo-user{
+  color:#3BB77E;
+  font-size:50px;
+  margin:10px;
+}
 
 
-/**********************page Home ******************************/
+/******************************page Home *************************************/
 h1, h2{
   text-align:center;
 }
 h1{
-  font-size:50px;
+  font-size:40px;
   color:white;
 }
 h2{
@@ -266,7 +271,7 @@ position:absolute;
 
 
 
-/*************************page produits***********************/
+/*********************************page produits********************************/
 /*****filtre******/
 .box-filtre{
   display:flex;
@@ -334,6 +339,55 @@ position:absolute;
 .form-contact-view{
   display:flex;
   flex-direction:column;
+}
+
+
+/********************************page login*********************************/
+.form-connexion{
+  display:flex;
+  flex-direction:column;
+  text-align:center;
+  background-color:grey;
+  color:white;
+  height:250px;
+  font-size:20px;
+  border-radius:10px;
+  padding:10px;
+  box-shadow:0px 4px 14px -3px rgba(0,0,0,0.66);
+  max-width:700px;
+  margin:auto;
+}
+
+.form-inscription{
+  display:flex;
+  flex-direction:column;
+  text-align:center;
+  background-color:grey;
+  color:white;
+  height:550px;
+  font-size:20px;
+  border-radius:10px;
+  padding:10px;
+  box-shadow:0px 4px 14px -3px rgba(0,0,0,0.66);
+  margin-bottom:50px;
+  max-width:700px;
+  margin:auto;
+}
+.form-connexion input, .form-inscription input{
+  width:80%;
+  height:30px;
+  margin:auto;
+  border-radius:10px;
+  border:none;
+}
+
+.form-connexion .btn, .form-inscription .btn{
+  width:50%;
+  height:50px;
+  margin:auto;
+}
+.h2-login{
+  color:white;
 }
 
 

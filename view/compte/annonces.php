@@ -31,7 +31,8 @@ if(isset($action)){
     <select name="type" value="<?=$annInfo['type']?>">
         <option value="produit legume">dons legume</option>
         <option value="produit fruit">dons fruit</option>
-        <option value="service">service</option>
+        <option value="service maison">service maison</option>
+        <option value="service auto">service automobile</option>
     </select>
     <input type="file" name="photo" value=""/>
     <input type="text" name="date" placeholder="date" value="<?=$annInfo['date']?>"/>

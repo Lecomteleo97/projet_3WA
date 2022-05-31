@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./public/css/style.css" type="text/css" />
     <link href="https://fonts.googleapis.com/css2?family=Kristi&family=Lato:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title><?=$title?></title>
     
 </head>
@@ -35,7 +36,7 @@
 
 <a href="index.php?page=home"><img id="logo-nav" src="./public/image/logo/logo-nav.png"></a>
 
-<i>logo connexion</i>
+<a href="index.php?page=compte"><i class="fa-solid fa-user logo-user"></i></a>
 </div>
     </header>
     <main><?=$content?></main>
