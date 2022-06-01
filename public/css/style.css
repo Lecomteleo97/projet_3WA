@@ -389,9 +389,106 @@ position:absolute;
 .h2-login{
   color:white;
 }
+/*********************************page message********************************/
+.section-conv{
+  display:flex;
+  flex-direction:column;
+  margin-bottom:50px;
+}
 
+.box-conv{
+  background-color:white;
+  margin:50px auto;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  order:2;
+  padding-bottom:10px;
+}
+.box-conv a{
+  border:1px grey solid;
+  padding:10px;
+  width:80%;
+  margin:auto;
+  text-decoration:none;
+  color:grey;
+  background-color:white;
+  font-size:20px;
+}
+.box-conv h3{
+  text-align:center;
+}  
+.container-show-conv{
+  width:100%;
+  background-color:white;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  max-height:500px;
+  padding:0;
+  order:1;
+  margin:auto;
+}
+.container-show-conv ul{
+  overflow:scroll;
+}
 
-
+.rigth-message{
+  border:none !important;
+  margin-left: 45%;
+  background-color:#3BB77E;
+  border-radius:20px 20px 0 20px !important;
+  color:white;
+}
+.liste-bulle{
+  padding:10px 10px 5px 10px;
+  margin-bottom:0;
+ box-shadow: inset -7px 20px 15px -22px rgba(0,0,0,0.86);
+}
+.liste-bulle li{
+  border:1px black solid;
+  border-radius:20px 20px 20px 0;
+  width:45%;
+  list-style:none;
+  padding:10px;
+}
+ .liste-bulle li:last-child{
+   border:none;
+   width:100%;
+   padding:0;
+   position:sticky;
+   bottom:0;
+ }
+.liste-bulle form{
+   width:auto;
+   height:50px;
+   display:flex;
+   justify-content:space-around;
+    background-color:grey;
+   padding:5px;
+   margin-bottom:0;
+ }
+ 
+.liste-bulle form textarea{
+  width:75%;
+  border-radius:10px;
+  padding:5px;
+}
+.liste-bulle form button{
+   width:18%;
+   border-radius:10px;
+   color:#3BB77E;
+   font-size:30px;
+   border:1px #3BB77E solid;
+   background-color:white;
+}
+.container-show-conv h3{
+  width:auto;
+  margin:0;
+  height:20px;
+  margin-top:10px;
+  text-align:center;
+}
 
 /**************************media query**************************************/
 /*****************media query tablette******************/
@@ -492,4 +589,83 @@ border:6px /*#3BB77E*/ white solid;
   font-size:20px;
   margin-left:20px;
 }
+
+/*********************************page message********************************/
+.section-conv{
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  margin-bottom:50px;
 }
+
+.box-conv{
+  width:40%;
+  display:flex;
+  flex-direction:column;
+  order:1;
+}
+.container-show-conv{
+  width:60%;
+  background-color:white;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  max-height:500px;
+  padding:10px 10px 5px 10px;
+  order:2;
+}
+.container-show-conv ul{
+  overflow:scroll;
+}
+
+.rigth-message{
+  margin-left: 45%;
+  background-color:#3BB77E;
+  color:white;
+}
+.liste-bulle{
+  padding:0;
+  margin-bottom:0;
+}
+.liste-bulle li{
+  border:1px black solid;
+  border-radius:20px;
+  width:50%;
+  list-style:none;
+  padding:10px;
+}
+ .liste-bulle li:last-child{
+   border:none;
+   width:100%;
+   padding:0;
+   position:sticky;
+   bottom:0;
+ }
+ .liste-bulle form{
+   width:auto;
+   height:50px;
+   display:flex;
+   justify-content:space-around;
+   background-color:grey;
+   padding:5px;
+ }
+.liste-bulle form textarea{
+  width:78%;
+  border-radius:10px;
+  padding:5px;
+}
+.liste-bulle form button{
+  width:18%;
+   border-radius:10px;
+   color:#3BB77E;
+   font-size:30px;
+   border:1px #3BB77E solid;
+   background-color:white;
+}  
+
+
+
+
+
+}
+

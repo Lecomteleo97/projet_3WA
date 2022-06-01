@@ -51,22 +51,23 @@ let carteLegume = document.querySelectorAll(".legume");
 let carteFruit = document.querySelectorAll(".fruit");
 let carteProduit = document.querySelectorAll(".card-produit");
 
-
-
-console.log(btnLegume);
-console.log(carteProduit);
-
+if(btnLegume !== null){
 btnLegume.addEventListener("click", ()=> {
     aff_categ(carteLegume);
 })
+}
 
+if(btnFruit !== null){
 btnFruit.addEventListener("click", ()=> {
     aff_categ(carteFruit);
 })
+}
 
+if(btnTout !== null){
 btnTout.addEventListener("click", ()=> {
     aff_categ(carteProduit);
 })
+}
 
 function aff_categ(liste) {
     for(let i of carteProduit){
@@ -77,7 +78,7 @@ function aff_categ(liste) {
     }
 }
 
-/*
+
 //filtre services
 let btnMaison = document.querySelector(".btn-maison");
 let btnAuto = document.querySelector(".btn-auto");
@@ -86,20 +87,24 @@ let carteMaison = document.querySelectorAll(".maison");
 let carteAuto = document.querySelectorAll(".auto");
 let carteService = document.querySelectorAll(".card-service");
 
-console.log(btnMaison);
-console.log(carteService);
 
+if(btnMaison !== null){
 btnMaison.addEventListener("click", ()=> {
     aff_categ_serv(carteMaison);
 })
+}
 
+if(btnAuto !== null){
 btnAuto.addEventListener("click", ()=> {
     aff_categ_serv(carteAuto);
 })
+}
 
+if(btnToutServ !== null){
 btnToutServ.addEventListener("click", ()=> {
     aff_categ_serv(carteService);
 })
+}
 
 function aff_categ_serv(liste2) {
     for(let i of carteService){
@@ -108,4 +113,8 @@ function aff_categ_serv(liste2) {
     for(let i of liste2){
         i.classList.remove("hide");
     }
-}*/
+}
+
+
+
+
