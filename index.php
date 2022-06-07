@@ -16,11 +16,11 @@ if(isset($_GET['action'])){
 switch($page){
     
     case 'services' :
-        require './controller/services.php';
+        require './controller/produits.php';
         break;
         
     case 'service_view' :
-        require './controller/service_view.php';
+        require './controller/produit_view.php';
         break;
         
     case 'contact' :

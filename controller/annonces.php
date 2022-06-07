@@ -5,7 +5,7 @@
         
     
 if(isset($_GET['id'])){
-    $id = $_GET['id'];
+    $id = intval($_GET['id']);
 }       
 //gestion des GET actions
 if(isset($_GET['action'])){
@@ -34,16 +34,28 @@ if(isset($_GET['action'])){
        
 //gestion du formuaire de création d'annonces
 if(isset($_POST['submit']) && $_POST['submit']=='poster'){
+    
+    $nom = htmlspecialchars(trim($_POST['nom']));
+    $quantity = htmlspecialchars(trim($_POST['quantite']));
+    $description = htmlspecialchars(trim($_POST['description']));
+    $type = htmlspecialchars(trim($_POST['type']));
+    $date = htmlspecialchars(trim($_POST['date']));
+
+    
     //insertion des info en db                
-  $poste = $ann->insertAnnonces($_SESSION['id'], $_POST['nom'], $_POST['quantite'], $_POST['description'], $_POST['type'], $_POST['date']);
+  $poste = $ann->insertAnnonces($_SESSION['id'], $nom, $quantity, $description, $type, $date);
   echo '<h2>annonce Enregistré !</h2>';
 }
 
 
   //traitement formulaire de modification      
   if(isset($_POST['submit']) && $_POST['submit']=='enregistrer'){
+    $nom = htmlspecialchars(trim($_POST['nom']));
+    $quantity = htmlspecialchars(trim($_POST['quantite']));
+    $description = htmlspecialchars(trim($_POST['description']));
+    
         //mise a jour des info en db
-         $ann->updateAnnonces($_POST['nom'], $_POST['description'],$_POST['quantite'], $id);  
+         $ann->updateAnnonces($nom, $description ,$quantity, $id);  
   echo '<h2>annonce Modifié !</h2>';
 }
       

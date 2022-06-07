@@ -1,7 +1,18 @@
 <?php
 
-$title = "page produit view";
+switch($page){
+    
+    case 'produit_view' :
+        $title = "page produit view";
+        $quantity = "Kg";
+        break;
+        
+    case 'service_view' :
+        $title = "page service view";
+        $quantity = "Heure(s)";
+        break;
 
+}
 ob_start();
 
 ?>
@@ -13,26 +24,28 @@ ob_start();
     
     <p><?=$produit['user_name'].' '.$produit['user_prenom']?></p>
     <p><?=$produit['description']?></p>
-    <p> Disponible :<?=$produit['quantite']?> KG
+    
+    <p> Disponible :<?=$produit['quantite'].''.$quantity?></p>
+   
     </div>
 </div>
 
 <?php
 if(isset($_SESSION['Auth'])){
 ?>
-<form class="form-contact-user-view" method="post" action="index.php?page=produit_view&id=<?=$produit['id']?>" > 
-    <textarea name="message" placeholder="saisir le message"/></textarea>
+<form class="form-msg-user-view" method="post" action="index.php?page=produit_view&id=<?=$produit['id']?>" > 
+    <textarea name="message" required maxlength="200" placeholder="saisir le message"/></textarea>
     <input class="btn" type="submit" name="submit" value="envoyer un message"/>
 </form>
 <?php
 }
 ?>
 
-<form class="form-contact-view">
-    <input type="text" name="nom" placeholder="votre nom"/>
-    <input type="text" name="mail" placeholder="votre mail"/>
-    <input type="textarea" name="message" placeholder="saisir le message"/>
-    <button class="btn" type="submit" value="Submit">envoyer un mail</button>
+<form class="form-contact-view" metod="post" action="index.php?page=produit_view&id=<?=$produit['id']?>">
+    <input required type="text" name="nom" placeholder="votre nom"/>
+    <input required type="text" name="mail" placeholder="votre mail"/>
+    <input required type="textarea" name="message" placeholder="saisir le message"/>
+    <input class="btn" type="submit" value="envoyer un mail"/>
 </form>
 
 

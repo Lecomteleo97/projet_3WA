@@ -23,7 +23,7 @@ class ManageMessages extends Manage {
     //affiche les messages relier au message d'origine
     public function showMessageConv($id){
         $data=['id'=>$id];
-        $query = "SELECT messages.*, users.prenom, users.id AS user_id FROM messages JOIN users ON users.id=messages.exp_id  WHERE origin_id =:id";
+        $query = "SELECT messages.*, users.prenom, users.id AS user_id FROM messages JOIN users ON users.id=messages.exp_id  WHERE messages.origin_id =:id";
         return $this->getQuery($query, $data);
     }
     
@@ -34,7 +34,7 @@ class ManageMessages extends Manage {
                 'message'=>$message, 
                 'origin_id'=>$origin_id,
                 'lu_pas_lu'=>$lu_pas_lu];
-        $query="INSERT INTO messages (exp_id, dest_id, message, origin_id, lu_pas_lu) VALUES (:exp_id, :dest_id, :message, :origin_id, :lu_pas_lu)";
+        $query="INSERT INTO messages (exp_id, dest_id, message, origin_id, lu_pas_lu, date_crea) VALUES (:exp_id, :dest_id, :message, :origin_id, :lu_pas_lu, NOW())";
         return $this->getQuery($query, $data);
         
     }
@@ -43,7 +43,7 @@ class ManageMessages extends Manage {
     public function findOriginId($dest_id,$exp_id){
         $data = ['dest_id'=>$dest_id,
                  'exp_id'=>$exp_id];
-        $query = "SELECT origin_id FROM messages WHERE (exp_id=:exp_id AND dest_id=:dest_id) OR (exp_id=:dest_id AND dest_id=:exp_id) AND origin_id>0 ORDER by origin_id DESC";
+        $query = "SELECT origin_id FROM messages WHERE (exp_id=:exp_id AND dest_id=:dest_id) OR (exp_id=:dest_id AND dest_id=:exp_id) AND origin_id>0 ORDER by origin_id DESC LIMIT 1";
         return $this->getQuery($query, $data);
     }
 

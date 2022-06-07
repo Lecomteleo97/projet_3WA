@@ -6,7 +6,7 @@ class ManageAnnonces extends Manage {
     
     public function showAnnonces($id){
         $data = ['id'=>$id];
-        $query = "SELECT produits.*, photos.nom AS photo FROM produits JOIN photos ON photos.produit_id = produits.id  WHERE produits.user_id =:id";
+        $query = "SELECT produits.*, photos.nom AS photo FROM produits JOIN photos ON photos.produit_id = produits.id  WHERE produits.user_id =:id ORDER BY produits.id DESC";
         return $this->getQuery($query, $data);
     }
     

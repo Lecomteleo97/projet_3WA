@@ -20,6 +20,6 @@ class ManageProduits extends Manage {
     
     //affiche les detail du pdt/service au clic
     public function getProduitInfos($id){
-    return $this->getQuery("SELECT produits.*, photos.nom AS photo, users.ville AS ville, users.nom AS user_name, users.prenom AS user_prenom FROM produits JOIN photos ON photos.produit_id = produits.id JOIN users ON users.id = produits.user_id WHERE produits.id='".$id."'");
+    return $this->getQuery("SELECT produits.*, photos.nom AS photo, users.ville AS ville, users.nom AS user_name, users.prenom AS user_prenom, users.mail as user_mail FROM produits JOIN photos ON photos.produit_id = produits.id JOIN users ON users.id = produits.user_id WHERE produits.id='".$id."'");
 }
 }
