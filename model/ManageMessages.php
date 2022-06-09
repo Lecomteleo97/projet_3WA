@@ -43,7 +43,7 @@ class ManageMessages extends Manage {
     public function findOriginId($dest_id,$exp_id){
         $data = ['dest_id'=>$dest_id,
                  'exp_id'=>$exp_id];
-        $query = "SELECT origin_id FROM messages WHERE (exp_id=:exp_id AND dest_id=:dest_id) OR (exp_id=:dest_id AND dest_id=:exp_id) AND origin_id>0 ORDER by origin_id DESC LIMIT 1";
+        $query = "SELECT id FROM messages WHERE (exp_id=:exp_id AND dest_id=:dest_id) OR (exp_id=:dest_id AND dest_id=:exp_id) ORDER by origin_id LIMIT 1";
         return $this->getQuery($query, $data);
     }
 

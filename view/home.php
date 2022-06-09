@@ -41,7 +41,8 @@ ob_start();
 
 
 <section class="explixation">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dicta nisi voluptatem consequatur labore blanditiis adipisci enim eos eligendi assumenda cumque deserunt quis suscipit fugit neque dolores veritatis tenetur. Veritatis, voluptatibus amet illo </p>
+    <p>Que ce soit vôtre temps ou des denrées alimentaire, ici vous pouvez tous donner !
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dicta nisi voluptatem consequatur labore blanditiis adipisci enim eos eligendi assumenda cumque deserunt quis suscipit fugit neque dolores veritatis tenetur. Veritatis, voluptatibus amet illo </p>
 </section>
 <!--------presentatio ndernier produits-------->
 <section class="section-new-pdt">

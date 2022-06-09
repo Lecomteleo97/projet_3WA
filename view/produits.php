@@ -31,7 +31,7 @@ switch($page){
 <?php
     if(isset($list_produits)){
         while($listep = $list_produits->fetch(PDO::FETCH_ASSOC)){
-            echo '<a href="index.php?page=produit_view&id='.$listep['id'].'" class="card-produit '.$listep['type'].' produit'.$listep['id'].'" title="Cliquez pour afficher les details">
+            echo '<a href="index.php?page=produit_view&id='.$listep['id'].'" class="card-produit '.$listep['type'].' produit'.$listep['id'].' flex" title="Cliquez pour afficher les details">
                 <div class="box-img-card-produit">
                 <img src="./public/image/produits/'.$listep['photo'].'" alt="artichaud">-->
                 </div>

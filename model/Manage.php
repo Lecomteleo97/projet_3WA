@@ -34,5 +34,18 @@ return $db;
         return $db->lastInsertId();
    }
    
+   public function setToken():string{
+       $token = bin2hex(random_bytes(16));
+        $_SESSION['token'] = $token;
+        return $token;
+   }
+   
+   public function verifyToken($token):bool{
+       if(isset($_SESSION['token']) && $_SESSION['token']===$_POST['token']){
+           return true;
+       }
+            return false;
+   }
+   
 }
 ?>

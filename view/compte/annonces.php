@@ -52,7 +52,7 @@ if(isset($action)){
 if($liste->rowCount()) {
     while($listeA = $liste->fetch(PDO::FETCH_ASSOC)) {
         echo
-        '<a href="index.php?page=produit_view&id='.$listeA['id'].'" class="card-produit produit'.$listeA['id'].'" title="Voir cette annonce">
+        '<a href="index.php?page=produit_view&id='.$listeA['id'].'" class="card-produit produit'.$listeA['id'].' flex" title="Voir cette annonce">
             <div class="box-img-card-produit">
                 <img src="./public/image/produits/'.$listeA['photo'].'" alt="'.$listeA['photo'].'">
             </div>

@@ -15,7 +15,7 @@ ob_start();
     <?php
     if($_SESSION['Auth']=='admin'){
         echo '
-        <a href="">Fonction de Boss</a>';
+        <a href="?page=admin">Fonction de Boss</a>';
     }
     ?>
     <a href="index.php?page=compte&deconnex=1" title="cliquez pour vous deconnecter">deconnexion</a>

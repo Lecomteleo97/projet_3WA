@@ -20,8 +20,8 @@ if(isset($_POST['submit']) && $_POST['submit']=='envoyer un message') {
     $origin_id = $origin_id->fetch();
     
     //si oui la continuer, sinon en commencer une 
-    if(!isset($origin_id['origin_id'])) $origin_id['origin_id'] = 0;
-    $sendMessage->sendMesssage($_SESSION['id'], $produit['user_id'], $msgView , $origin_id['origin_id'], 1);
+    if(!isset($origin_id['id'])) $origin_id['id'] = 0;
+    $sendMessage->sendMesssage($_SESSION['id'], $produit['user_id'], $msgView , $origin_id['id'], 1);
 }
 
 

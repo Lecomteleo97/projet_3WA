@@ -45,7 +45,11 @@ switch($page){
         
     case 'messages' :
         require './controller/messages.php';
-        break;     
+        break;  
+        
+    case 'admin' :
+        require './controller/admin.php';
+        break;
         
     default : 
         require './controller/home.php';

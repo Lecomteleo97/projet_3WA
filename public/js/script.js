@@ -19,6 +19,7 @@ function closeNav() {
 }
 
 //slider 
+if(sidenav!==null){
 const swiper = new Swiper('.swiper', {
   // Optional parameters
   direction: 'horizontal',
@@ -42,7 +43,7 @@ const swiper = new Swiper('.swiper', {
     el: '.swiper-scrollbar',
   },*/
 });
-
+}
 //-----------------page produit/service-----------------
 //------bouton filtres pdt
 let btnLegume = document.querySelector(".btn-legumes");
@@ -77,16 +78,6 @@ btnTout.addEventListener("click", ()=> {
 })
 }
 
-function aff_categ(liste) {
-    for(let i of carteProduit){
-        i.classList.add("hide");
-    }
-    for(let i of liste){
-        i.classList.remove("hide");
-    }
-}
-
-
 //-----filtre services
 if(btnMaison !== null){
 btnMaison.addEventListener("click", ()=> {
@@ -106,15 +97,44 @@ btnToutServ.addEventListener("click", ()=> {
     aff_categ(carteProduit);
 })
 }
-
+function aff_categ(liste) {
+    for(let i of carteProduit){
+        i.classList.add("hide");
+        i.classList.remove("flex");
+    }
+    for(let i of liste){
+        i.classList.remove("hide");
+        i.classList.add("flex")
+    }
+}
 
 //----------------page message----------------------
 //-----scroll auto des conv a l'ouverture 
 let containerConv = document.querySelector(".liste-bulle");
+let dateMessage = document.querySelectorAll(".date-msg");
 
 //voir pour trouver la taille du div
-containerConv.scroll({
-    top:10000,
+if(containerConv!==null){
     
-})
+    containerConv.scroll({
+    top:10000,
+    });
+    
+    
+    //affiche et enleve les date des messages au clic sur la conv
+    for (let i of dateMessage){
+        containerConv.addEventListener('click', function(){
+        i.classList.remove("hide");    
+        setTimeout(function(){
+        i.classList.add("hide")}, 3000
+        ) ;   
+            
+        console.log(i);    
+        })
+    }
+
+}
+
+
+
 
