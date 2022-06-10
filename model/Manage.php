@@ -41,7 +41,7 @@ return $db;
    }
    
    public function verifyToken($token):bool{
-       if(isset($_SESSION['token']) && $_SESSION['token']===$_POST['token']){
+       if(isset($_SESSION['token']) && $_SESSION['token']===$token){
            return true;
        }
             return false;

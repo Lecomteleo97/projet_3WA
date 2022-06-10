@@ -10,29 +10,36 @@ if(isset($_GET['deconnex'])){
     session_destroy();
 }
 
+
+
 //traitement formulaire inscription
-if(isset($_POST['submit']) && $_POST['submit']=='s\'inscrire'){
+if(isset($_POST['submit']) && $_POST['submit']=='S\'inscrire'){
+   
+    //verification par token
+   if($users->verifyToken($_POST['token'])){
+       
+         //sécurisation des entrées
+        $nom = htmlspecialchars(trim($_POST['nom']));
+        $prenom = htmlspecialchars(trim($_POST['prenom']));
+        $login = htmlspecialchars(trim($_POST['login']));
+        $pwd = htmlspecialchars(trim($_POST['pwd']));
+        $mail = htmlspecialchars(trim($_POST['mail']));
+        $codePostal = htmlspecialchars(trim($_POST['code_postal']));
+        $ville = htmlspecialchars(trim($_POST['ville']));
     
-     //sécurisation des entrées
-    $nom = htmlspecialchars(trim($_POST['nom']));
-    $prenom = htmlspecialchars(trim($_POST['prenom']));
-    $login = htmlspecialchars(trim($_POST['login']));
-    $pwd = htmlspecialchars(trim($_POST['pwd']));
-    $mail = htmlspecialchars(trim($_POST['mail']));
-    $codePostal = htmlspecialchars(trim($_POST['code_postal']));
-    $ville = htmlspecialchars(trim($_POST['ville']));
-    
-    
-    //appel a la db et cryptage du mdp en PASSWORD_BCRYPT
-    $registre = $users ->insertAccount($nom,$prenom,$login, password_hash( $pwd , PASSWORD_BCRYPT ) ,$mail,$codePostal,$ville);
-        
-    //la session prend la valeur du formulaire pour connecter direct a la page compte apres inscription
-    $_SESSION['Auth']= 'user';
-    $_SESSION['name']=$login;
-    $auth = '<h2>Merci de vous être enregistré !</h2>';
-}else{
-    $auth = '';
+        //appel a la db et cryptage du mdp en PASSWORD_BCRYPT et recuperation du dernier id en db
+        $registre = $users ->insertAccount($nom,$prenom,$login, password_hash( $pwd , PASSWORD_BCRYPT ) ,$mail,$codePostal,$ville);
+        }    
+        //la session prend la valeur du formulaire pour connecter direct a la page compte apres inscription
+        $_SESSION['Auth']= 'user';
+        $_SESSION['name']=$login;
+        $_SESSION['id']=intval($registre);
+        $auth = '<h2>Merci de vous être enregistré !</h2>';
+    }else{
+        $auth = '';
 }
+$token = $users->setToken();
+
 
 //traitement du formullaire connexion
 if(isset($_POST['submit']) && $_POST['submit']=='OK'){
@@ -53,7 +60,6 @@ if(isset($_POST['submit']) && $_POST['submit']=='OK'){
     
     //si connu ok
     if ($nb && password_verify( $pwd, $result[0]['mdp'] )){
-        $auth = '<h2>Identification reussi</h2>';
         $_SESSION['Auth']= $result[0]['type_compte'];
         $_SESSION['name']=$result[0]['login'];
         $_SESSION['id']=$result[0]['id'];
@@ -70,7 +76,6 @@ if(!isset($_SESSION['Auth']) || !$_SESSION['Auth']){
     
 }else{//sinon renvoi a la page de gestion du compte
     require './view/compte/compte.php';
-    var_dump($_SESSION);
 }
 
 

@@ -23,12 +23,15 @@ ob_start();
 <form class="form-inscription" method="post" action="index.php?page=compte">
     <input type="text" required pattern="^[A-Za-z '-]+$" maxlength="20" name="nom" placeholder="Nom"/>
     <input type="text" required pattern="^[A-Za-z '-]+$" maxlength="20" name="prenom" placeholder="Prénom"/>
-    <input type="text" required name="login" placeholder="Nom d'utilisateur"/>
+    <input id="login" type="text" required name="login" placeholder="Nom d'utilisateur"/>
+    <div id="contenu-login"></div>
     <input type="password" required name="pwd" placeholder="Mot de passe"/>
-    <input type="email" required pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}" name="mail" placeholder="Adresse mail"/>
+    <input id="mail" type="email" required pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}" name="mail" placeholder="Adresse mail"/>
+    <div id="contenu-mail"></div>
     <input type="text" required pattern="[0-9]{5}" name="code_postal" placeholder="Code postal"/>
     <input type="text" required pattern="^[A-Za-z '-]+$" name="ville" placeholder="Ville"/>
-    <input class="btn" type="submit" name="submit" value="s'inscrire"/>
+     <input type="hidden" name="token" value="<?=$token?>">
+    <input class="btn" type="submit" name="submit" value="S'inscrire"/>
 </form>
 
 <?php

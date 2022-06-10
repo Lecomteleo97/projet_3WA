@@ -24,7 +24,7 @@
 
 body{
   font-family: 'Lato', sans-serif;
-  background-color:#3BB77E;
+  /*background-color:#3BB77E*/;
   margin:0;
 }
 .hide{
@@ -36,6 +36,9 @@ body{
 .vert{
   color:#3BB77E;
 }
+.red{
+  color:red;
+}
 .bold{
   font-weight:bold;
 }
@@ -43,15 +46,16 @@ body{
   border:1px solid #3BB77E;
   background-color:#3BB77E;
   color:white;
-  padding:10px;
+  padding:8px;
   border-radius:10px;
   font-size:30px;
   box-shadow:0px 4px 14px -3px rgba(0,0,0,0.66);
   text-decoration:none;
+  transition:all 500ms;
 }
 .btn:hover{
-  background-color:white;
-  color:#3BB77E;
+  background-color:#3BB77E;
+  color:white;
   box-shadow:inset 0px 4px 14px -3px rgba(0,0,0,0.66);
 }
 
@@ -60,11 +64,11 @@ header{
   top:0;
   box-shadow:0px 4px 14px -3px rgba(0,0,0,0.66);
   margin-bottom:50px;
-  background-color:#fff;
+  background-color:white;
   z-index:5;
 }
 #box-nav{
-  display:flex;
+    display:flex;
     justify-content:space-between;
     margin:0;
 }
@@ -82,7 +86,7 @@ main{
   z-index:1000;
   top: 0;
   left: -70%;
-  background-color: #e8e8e8;
+  background-color:#3BB77E;
   padding-top: 60px;
   transition: left 0.5s ease;
 }
@@ -149,6 +153,9 @@ main{
   font-size:50px;
   margin:10px;
 }
+.liste_menu_desktop{
+  display:none;
+}
 
 
 /******************************page Home *************************************/
@@ -157,7 +164,7 @@ h1, h2{
 }
 h1{
   font-size:40px;
-  color:white;
+  color:#3BB77E;
 }
 h2{
   font-size:30px;
@@ -221,7 +228,7 @@ h2{
 .explixation{
   margin:auto;
   margin-bottom:100px;
-  color:white;
+  color:grey;
 }
 
 /******new-pdt*******/
@@ -234,7 +241,7 @@ h2{
 }
 .section-new-pdt h2, .section-new-srv h2{
   font-size:20px;
-color:grey;
+  color:grey;
 }
 #box-new-produits, #box-new-services{
   margin:auto;
@@ -254,11 +261,14 @@ color:grey;
   height:175px;
   position:relative;
   box-shadow:0px 4px 14px -3px rgba(0,0,0,0.66);
+  border:6px  solid rgba(255, 255, 255, .5);
 }
-.card-new-p:hover, .card-new-s:hover{
+.card-new-p:hover img, .card-new-s:hover img{
 transition:all 500ms;  
 transform:scale(1.05);
-border:6px /*#3BB77E*/ white solid;
+}
+.card-new-p:hover{
+  border:6px white solid;
 }
 .card-new-p{
   background-size:cover;
@@ -281,10 +291,9 @@ position:absolute;
   position:relative;
   z-index:2;
   text-align:center;
- /* margin:135px auto 10px auto;*/
- margin:auto;
- margin-top:110px;
- height:55px;
+  margin:auto;
+  margin-top:110px;
+  height:55px;
   width:90%;
   font-size:20px;
   border-radius:10px;
@@ -302,7 +311,7 @@ position:absolute;
   display:flex;
   flex-direction:row;
   flex-wrap:wrap;
-  gap:20px 10px;
+  gap:20px 5px;
   justify-content:space-around;
   text-align:center;
   background-color:white;
@@ -321,14 +330,14 @@ position:absolute;
   flex-wrap:wrap;
   margin:auto;
   margin-top:50px;
-  gap:40px;
+  gap:10px;
 }
 .card-produit{
   flex-wrap:wrap;
-  width:100%;
-  height:280px;
+  width:45%;
+  height:230px;
   border:4px white solid;
-  border-radius:30px;
+  border-radius:10px;
   overflow:hidden;
   background-color:white;
   text-decoration:none;
@@ -338,15 +347,15 @@ position:absolute;
 .box-img-card-produit{
   overflow:hidden;
   width:100%;
-  height:150px;
+  height:100px;
 }
 .box-img-card-produit img{
-  width:100%;
+  width:150%;
 }
 .card-produit p:nth-child(2){
-  margin-left:auto;
+  margin:auto;
   display:block;
-  width:90%;
+  width:95%;
   color:grey;
 }
 
@@ -409,7 +418,10 @@ position:absolute;
   margin:auto;
 }
 .h2-login{
-  color:white;
+  color:#3BB77E;
+}
+#contenu-login, #contenu-mail{
+  color:red;
 }
 /*********************************page messages*****************************/
 .section-conv{
@@ -548,7 +560,12 @@ position:absolute;
 #tableau-admin tr:nth-child(odd){
   background-color:#dbdbdb;
 }
-
+/********************************page compte*****************************/
+#container-a-compte{
+  display:flex;
+  flex-direction:column;
+  gap:10px 0;
+}
 
 /**************************media query**************************************/
 /*****************media query tablette******************/
@@ -605,9 +622,36 @@ width:150%;
     font-size:50px;
   }
   /********************template desktop******************************/
-  .sidenav {
+.sidenav {
   width: 30%;
-  }
+}
+.liste_menu_desktop{
+  display:flex;
+  justify-content:space-around;
+  list-style:none;
+  padding-left:0;
+  width:80%;
+  margin-top:20px;
+}
+.liste_menu_desktop a{
+  text-decoration:none;
+  font-weight:bold;
+  color:#3BB77E;
+  font-size:20px;
+}
+.liste_menu_desktop li{
+  transition:all 500ms;
+}
+.liste_menu_desktop li:hover{
+  transform:scale(1.1);
+}
+
+#openBtn{
+  display:none;
+}
+.logo-compte{
+  display:none;
+}
 /******************************page Home desktop***************************/
 /******$slide******/
 .box-presentation img{
@@ -631,7 +675,7 @@ color:grey;
 width:130%;  
 }
 .card-new-s p, .card-new-p p{
-  font-size:30px;
+  font-size:25px;
 }
 .section-new-pdt, .section-new-srv{
   padding-bottom:30px;

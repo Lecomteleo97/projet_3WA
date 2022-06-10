@@ -35,7 +35,7 @@ switch($page){
                 <div class="box-img-card-produit">
                 <img src="./public/image/produits/'.$listep['photo'].'" alt="artichaud">-->
                 </div>
-                <p class="text-lieu-produit">Produit à donner : <span class="vert bold">'.$listep['nom'].'</span><br>disponible à : <span class="vert bold">'.$listep['ville'].'</span><br>quantié disponible : <span class="vert bold">'.$listep['quantite'].'</span>KG<br>description : <span class="vert bold">'.$listep['description'].'</span></p>
+                <p class="text-lieu-produit"><span class="vert bold">'.$listep['nom'].'</span><br>disponible à : <span class="vert bold">'.$listep['ville'].'</span><br>quantié disponible : <span class="vert bold">'.$listep['quantite'].'</span>KG<br></p>
                     </a>';
         }   
     }

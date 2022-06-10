@@ -13,7 +13,7 @@
 <body>
     <div id="mySidenav" class="sidenav">
   <a id="closeBtn" href="#" class="close">×</a>
-  <ul>
+  <ul class="liste-menu-phone">
     <li><a href="index.php?page=home" title="Aller a l'accueil">Accueil</a></li>
     <li><a href="index.php?page=produits" title="Voir tous les dons">Les Dons</a></li>
     <li><a href="index.php?page=services" title="Voir tous les services">Les Services</a></li>
@@ -33,9 +33,16 @@
   </span>
 </a>
 
+<ul class="liste_menu_desktop">
+    <li><a href="index.php?page=home" title="Aller a l'accueil">Accueil</a></li>
+    <li><a href="index.php?page=produits" title="Voir tous les dons">Les Dons</a></li>
+    <li><a href="index.php?page=services" title="Voir tous les services">Les Services</a></li>
+    <li><a href="index.php?page=compte" title="Acceder à mon compte">Mon Compte</a></li>
+    <li><a href="index.php?page=contact" title="Page de contact">Contact</a></li>
+  </ul>
 <a href="index.php?page=home" title="Retour à l'accueil"><img id="logo-nav" src="./public/image/logo/logo-nav.png"></a>
 
-<a href="index.php?page=compte" title="Acceder à mon compte"><i class="fa-solid fa-user logo-user"></i></a>
+<a href="index.php?page=compte" title="Acceder à mon compte"><i class="fa-solid fa-user logo-user logo-compte" ></i></a>
 </div>
     </header>
     <main><?=$content?></main>

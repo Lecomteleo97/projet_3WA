@@ -4,27 +4,40 @@
 let sidenav = document.getElementById("mySidenav");
 let openBtn = document.getElementById("openBtn");
 let closeBtn = document.getElementById("closeBtn");
+let main = document.getElementsByTagName("main");
 
+//ouvre la nav si click sur burger
 openBtn.onclick = openNav;
+
+//la ferme si click dans main
+for(let i of main){
+    i.onclick = closeNav;
+}
+
+//ferme si click sur croix
 closeBtn.onclick = closeNav;
 
-/* Set the width of the side navigation to 250px */
+//rajoute la class active a la nav
 function openNav() {
   sidenav.classList.add("active");
 }
 
-/* Set the width of the side navigation to 0 */
+//enleve la class active
 function closeNav() {
   sidenav.classList.remove("active");
 }
-
-//slider 
+//-----------------------------page Home-----------
+//slider  
 if(sidenav!==null){
 const swiper = new Swiper('.swiper', {
   // Optional parameters
   direction: 'horizontal',
   loop: true,
   effect: "flip",
+   autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
 
   // If we need pagination
   pagination: {
@@ -135,6 +148,60 @@ if(containerConv!==null){
 
 }
 
+//-----------------------page compte--------------------------
 
+//---------------verif login et mail ajax-----------------
+let form = document.querySelector('.form-inscription');
+let login = document.querySelector('#login');
+let body = document.querySelector('body');
+let contenu = document.querySelector('#contenu-login');
+let contenuMail = document.querySelector("#contenu-mail")
+let mail = document.querySelector('#mail');
 
+//verification que pas de login connu a l'inscription
+if(form !== null){
+    login.addEventListener('keyup', function(){
+    let search = login.value;
+    let formData = new FormData();
+    formData.append('login', search);
+        
+        let obj = { 'method': 'POST', 'body': formData };
+        
+        fetch('ajax/loginControl.php', obj)
+            .then(response => response.text())
+            .then(data => {
+                if(parseInt(data)) {
+                    let mess = "ce pseudo est déjà utilisé !";
+                    login.classList.add("red");
+                    contenu.innerHTML = mess;
+                }else{
+                    contenu.innerHTML = "";
+                    login.classList.remove("red");
+                }
+            })
+            .catch(err => console.error(err));
+})  
+
+mail.addEventListener('keyup', function(){
+    let searchM = mail.value;
+    let formData = new FormData();
+    formData.append('mail', searchM);
+        
+        let obj = { 'method': 'POST', 'body': formData };
+        
+        fetch('ajax/loginControl.php', obj)
+            .then(response => response.text())
+            .then(data => {
+                if(parseInt(data)) {
+                    let mess = "ce mail est déjà utilisé !";
+                    mail.classList.add("red");
+                    contenuMail.innerHTML = mess;
+                }else{
+                    contenuMail.innerHTML = "";
+                    mail.classList.remove("red");
+                }
+            })
+            .catch(err => console.error(err));
+})    
+}
 

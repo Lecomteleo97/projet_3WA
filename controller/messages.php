@@ -8,7 +8,6 @@ if(isset($_GET['idconv'])){
 }else{
   $idConv = 0;
 }   
-
 //affichege de la liste des conversation
 $listeMessagesOrigin = $message->showMessagesOrigin($_SESSION['id']);
 
