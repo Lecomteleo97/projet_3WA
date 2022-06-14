@@ -11,9 +11,8 @@ if(isset($_GET['deconnex'])){
 }
 
 
-
 //traitement formulaire inscription
-if(isset($_POST['submit']) && $_POST['submit']=='S\'inscrire'){
+if(isset($_POST['btsubmit']) && $_POST['btsubmit']=='S\'inscrire'){
    
     //verification par token
    if($users->verifyToken($_POST['token'])){

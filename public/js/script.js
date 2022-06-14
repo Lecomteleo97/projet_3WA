@@ -33,7 +33,7 @@ const swiper = new Swiper('.swiper', {
   // Optional parameters
   direction: 'horizontal',
   loop: true,
-  effect: "flip",
+  //effect: "fade",
    autoplay: {
           delay: 5000,
           disableOnInteraction: false,
@@ -151,15 +151,23 @@ if(containerConv!==null){
 //-----------------------page compte--------------------------
 
 //---------------verif login et mail ajax-----------------
-let form = document.querySelector('.form-inscription');
+let form = document.getElementById('form-inscription');
 let login = document.querySelector('#login');
 let body = document.querySelector('body');
 let contenu = document.querySelector('#contenu-login');
-let contenuMail = document.querySelector("#contenu-mail")
+let contenuMail = document.querySelector("#contenu-mail");
 let mail = document.querySelector('#mail');
-
+let formvalid = true;
 //verification que pas de login connu a l'inscription
 if(form !== null){
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if(formvalid) {
+            console.log(form, e.currentTarget);
+            document.getElementById('form-inscription').submit();
+        }
+    });
+    
     login.addEventListener('keyup', function(){
     let search = login.value;
     let formData = new FormData();
@@ -174,9 +182,11 @@ if(form !== null){
                     let mess = "ce pseudo est déjà utilisé !";
                     login.classList.add("red");
                     contenu.innerHTML = mess;
+                    formvalid = false;
                 }else{
                     contenu.innerHTML = "";
                     login.classList.remove("red");
+                    formvalid = true;
                 }
             })
             .catch(err => console.error(err));
@@ -196,12 +206,74 @@ mail.addEventListener('keyup', function(){
                     let mess = "ce mail est déjà utilisé !";
                     mail.classList.add("red");
                     contenuMail.innerHTML = mess;
+                    formvalid = false;
                 }else{
                     contenuMail.innerHTML = "";
                     mail.classList.remove("red");
+                    formvalid = true;
                 }
             })
             .catch(err => console.error(err));
 })    
 }
+//---------------------page gestion infos users----------------------
+
+//verification pas de doublon de login lors de la modif de users
+let formUpdateUsers = document.querySelector('.formUpdateUsers');
+let loginUpdateUsers = document.querySelector('#loginUpdateUsers');
+let containMsgUser = document.querySelector('#contenu-login-updateInfos');
+let contenuMailUser = document.querySelector("#contenu-mail-updateInfos");
+let mailUser = document.querySelector('#mailUpdateUsers');
+
+
+
+
+
+if(formUpdateUsers !== null){
+    loginUpdateUsers.addEventListener('keyup', function(){
+    let search = loginUpdateUsers.value;
+    let formData = new FormData();
+    formData.append('login', search);
+        
+        let obj = { 'method': 'POST', 'body': formData };
+        
+        fetch('ajax/loginControl.php', obj)
+            .then(response => response.text())
+            .then(data => {
+                if(parseInt(data)) {
+                    let mess = "ce pseudo est déjà utilisé !";
+                    loginUpdateUsers.classList.add("red");
+                    containMsgUser.innerHTML = mess;
+                }else{
+                    containMsgUser.innerHTML = "";
+                    loginUpdateUsers.classList.remove("red");
+                }
+            })
+            .catch(err => console.error(err));
+})
+
+//verifcation mail
+   mailUser.addEventListener('keyup', function(){
+    let search = mailUser.value;
+    let formData = new FormData();
+    formData.append('mail', search);
+        
+        let obj = { 'method': 'POST', 'body': formData };
+        
+        fetch('ajax/loginControl.php', obj)
+            .then(response => response.text())
+            .then(data => {
+                if(parseInt(data)) {
+                    let mess = "cette adresse existe déjà";
+                    mailUser.classList.add("red");
+                    contenuMailUser.innerHTML = mess;
+                }else{
+                    contenuMailUser.innerHTML = "";
+                    mailUser.classList.remove("red");
+                }
+            })
+            .catch(err => console.error(err));
+})
+}
+
 

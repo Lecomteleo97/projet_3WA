@@ -73,7 +73,7 @@ class ManageAnnonces extends Manage {
             'quantite'=>$quantite,
             'id'=>$id
             ];
-        $query = 'UPDATE produits SET nom=:nom, description=:description, quantite=:quantite WHERE produits.id =:id';
+        $query = "UPDATE produits SET nom=:nom, description=:description, quantite=:quantite WHERE produits.id =:id";
         return $this->getQuery($query, $data);
     }
       

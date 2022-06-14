@@ -44,11 +44,11 @@ body{
 }
 .btn{
   border:1px solid #3BB77E;
-  background-color:#3BB77E;
-  color:white;
-  padding:8px;
-  border-radius:10px;
-  font-size:30px;
+  background-color:white;
+  color:#3BB77E;
+  padding:10px;
+  /*border-radius:5px;*/
+  font-size:25px;
   box-shadow:0px 4px 14px -3px rgba(0,0,0,0.66);
   text-decoration:none;
   transition:all 500ms;
@@ -63,7 +63,6 @@ header{
   position: sticky;
   top:0;
   box-shadow:0px 4px 14px -3px rgba(0,0,0,0.66);
-  margin-bottom:50px;
   background-color:white;
   z-index:5;
 }
@@ -72,11 +71,11 @@ header{
     justify-content:space-between;
     margin:0;
 }
-main{
+/*main{
   width:90%;
   max-width:1400px;
   margin:auto;
-}
+}*/
 
 /* Sidenav menu */
 .sidenav {
@@ -156,25 +155,28 @@ main{
 .liste_menu_desktop{
   display:none;
 }
-
-
-/******************************page Home *************************************/
 h1, h2{
-  text-align:center;
+ /* text-align:left;*/
+ margin:10px auto;
+ width:70%;
 }
 h1{
-  font-size:40px;
+  font-size:30px;
   color:#3BB77E;
 }
 h2{
-  font-size:30px;
+  font-size:28px;
 }
+
+/******************************page Home *************************************/
+
 /****slide*****/
 .swiper {
-  border-radius:5px;
-  height: 285px;
+  height: 400px;
 }
 .swiper-button-next, .swiper-button-prev {
+  display:none;
+  margin-top:160px !important;
   color:#3BB77E !important;
 }
 .swiper-pagination-bullet{
@@ -188,57 +190,85 @@ h2{
   color:white;
   background-size:cover;
   background-position:center;
-  border-radius:20px;
   display:flex;
   flex-direction:column;
-  align-items:center;
-  height:267px;
+  align-items:flex-start;
+  height:400px;
   margin:auto;
   padding-bottom:20px;
   justify-content:space-around;
   position: relative;
-    overflow: hidden;
-    margin-bottom:50px;
-    background-color:black;
-    box-shadow:0px 4px 14px -3px rgba(0,0,0,0.66);
+  overflow: hidden;
+  margin-bottom:50px;
+  background-color:black;
+  box-shadow:0px 4px 14px -3px rgba(0,0,0,0.66);
 }
 .box-presentation p:nth-child(1){
       margin-top: 26px;
     margin-bottom: 0px;
-    text-align: center;
     font-size: 30px;
+    font-weight:bold;
+    width:70%;
 }
 .box-presentation p:nth-child(2){
   font-size:20px;
+  width:70%;
+  
 }
 .box-presentation p, .box-presentation .btn{
-  position: relative;
+  /*position: relative;*/
     z-index: 2;
+    margin-left:15%;
 }
 .box-presentation img{
   position: absolute;
-  width:150%;
+  width:220%;
   opacity:0.5;
 }
 .box-presentation a {
   text-decoration:none;
+  margin-bottom:20px;
+  display:block;
+  background-color:white;
+  color:#3BB77E;
 }
 
 /***explication***/
 .explixation{
-  margin:auto;
-  margin-bottom:100px;
   color:grey;
+}
+.txt-explication{
+width:70%;
+margin:auto;
+}
+.explication-draw{
+  margin-top:50px;
+  background-color:#3BB77E;
+  color:white;
+  width:100%;
+  padding:20px 0 40px 0;
+}
+.explication-draw p{
+  width:70%;
+  margin:auto;
+  text-align:center;
+  margin-top:30px;
+  font-weight:bold;
+}
+.explication-draw p i{
+  font-size:30px;
 }
 
 /******new-pdt*******/
+
+ 
 .section-new-pdt, .section-new-srv{
   background-color:white;
-  border-radius:5px;
   margin-bottom:50px;
-  box-shadow:0px 4px 14px -3px rgba(0,0,0,0.66);
   padding:10px;
 }
+
+
 .section-new-pdt h2, .section-new-srv h2{
   font-size:20px;
   color:grey;
@@ -253,22 +283,18 @@ h2{
 }
 .card-new-p, .card-new-s{
   text-decoration:none;
-  border-radius:10px;
+  border-radius:5px;
   color:white;
   font-size:30px;
-  margin-top:20px;
-  width:45%;
+  margin-top:10px;
+  width:70%;
   height:175px;
   position:relative;
-  box-shadow:0px 4px 14px -3px rgba(0,0,0,0.66);
-  border:6px  solid rgba(255, 255, 255, .5);
+  /*box-shadow:0px 4px 14px -3px rgba(0,0,0,0.66);*/
 }
 .card-new-p:hover img, .card-new-s:hover img{
 transition:all 500ms;  
 transform:scale(1.05);
-}
-.card-new-p:hover{
-  border:6px white solid;
 }
 .card-new-p{
   background-size:cover;
@@ -287,17 +313,18 @@ position:absolute;
   display:flex;
   flex-direction:column;
   justify-content:center;
-  background-color:#3BB77E;
+  background-color:white;
+  color:grey;
   position:relative;
   z-index:2;
   text-align:center;
   margin:auto;
-  margin-top:110px;
-  height:55px;
-  width:90%;
+  margin-top:130px;
+  padding:5px;
+  width:95%;
   font-size:20px;
-  border-radius:10px;
   box-shadow:0px 4px 14px -3px rgba(0,0,0,0.66);
+  opacity:0.9;
 }
 
 
@@ -389,13 +416,13 @@ position:absolute;
   margin:auto;
 }
 
-.form-inscription{
+.form-inscription, .formUpdateUsers, .form-updade-pwd{
   display:flex;
   flex-direction:column;
   text-align:center;
   background-color:grey;
   color:white;
-  height:550px;
+  /*height:550px;*/
   font-size:20px;
   border-radius:10px;
   padding:10px;
@@ -404,13 +431,13 @@ position:absolute;
   max-width:700px;
   margin:auto;
 }
-.form-connexion input, .form-inscription input{
+/*.form-connexion input, .form-inscription input{
   width:80%;
   height:30px;
   margin:auto;
   border-radius:10px;
   border:none;
-}
+}*/
 
 .form-connexion .btn, .form-inscription .btn{
   width:50%;
@@ -420,7 +447,7 @@ position:absolute;
 .h2-login{
   color:#3BB77E;
 }
-#contenu-login, #contenu-mail{
+#contenu-login, #contenu-mail, #contenu-mail-updateInfos, #contenu-login-updateInfos{
   color:red;
 }
 /*********************************page messages*****************************/

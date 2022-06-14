@@ -51,6 +51,10 @@ switch($page){
         require './controller/admin.php';
         break;
         
+    case 'infos' :
+        require './controller/infos.php';
+        break;
+        
     default : 
         require './controller/home.php';
 }
